@@ -56,7 +56,7 @@
 ;; (require 'init-sessions)
 (require 'init-fonts)
 ;; (require 'init-mmm)
-(require 'init-tabbar)
+;; (require 'init-tabbar)
 (require 'init-editing-utils)
 (require 'init-evil)
 (require 'init-matlab)
@@ -79,7 +79,7 @@
 ;; (require 'init-css)
 ;; (require 'init-haml)
 ;; (require 'init-python-mode)
-(require 'init-haskell)
+;; (require 'init-haskell)
 ;; (require 'init-ruby-mode)
 ;; (require 'init-rails)
 ;; (require 'init-sql)
@@ -110,13 +110,20 @@
 ;;   (require-package 'osx-location))
 ;; (require-package 'regex-tool)
 
-(require 'init-themes)
+;; (require 'init-themes)
 ;; ;;----------------------------------------------------------------------------
-;; ;; Allow access from emacsclient
-;; ;;----------------------------------------------------------------------------
-;; (require 'server)
-;; (unless (server-running-p)
-;;   (server-start))
+;; Allow access from emacsclient
+;;----------------------------------------------------------------------------
+(require 'init-comment)
+(require 'init-smart-copy)
+(require 'init-customer)
+(require 'init-helm)
+(require 'init-elpy)
+(require 'init-flymake-python-pyflakes)
+
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 
 ;;----------------------------------------------------------------------------
