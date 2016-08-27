@@ -56,7 +56,7 @@
 ;; (require 'init-sessions)
 ;; (require 'init-mmm)
 ;; (require 'init-tabbar)
-(require 'init-editing-utils)
+;;(require 'init-editing-utils)
 (require 'init-evil)
 
 ;; (require 'init-vc)
@@ -70,7 +70,7 @@
 ;; (require 'init-erlang)
 ;; (require 'init-javascript)
 ;; (require 'init-php)
-(require 'init-org)
+;;(require 'init-org)
 ;; (require 'init-nxml)
 ;; (require 'init-html)
 ;; (require 'init-css)
