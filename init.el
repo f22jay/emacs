@@ -122,8 +122,6 @@
 (unless (server-running-p)
   (server-start))
 
-;;(require 'molokai-theme)
-(load-theme 'molokai t)
 
 
 ;;----------------------------------------------------------------------------
@@ -150,6 +148,9 @@
 ;;            (lambda ()
 ;;              (message "init completed in %.2fms"
 ;;                       (sanityinc/time-subtract-millis after-init-time before-init-time))))
+
+(require 'molokai-theme)
+(load-theme 'molokai t)
 
 
 (provide 'init)
