@@ -68,14 +68,13 @@
 (require 'init-markdown)
 ;; (require 'init-csv)
 ;; (require 'init-erlang)
-;; (require 'init-javascript)
 ;; (require 'init-php)
 ;;(require 'init-org)
 ;; (require 'init-nxml)
 ;; (require 'init-html)
 ;; (require 'init-css)
 ;; (require 'init-haml)
-;; (require 'init-python-mode)
+(require 'init-python-mode)
 ;; (require 'init-haskell)
 ;; (require 'init-ruby-mode)
 ;; (require 'init-rails)
@@ -90,7 +89,7 @@
 ;; (require 'init-common-lisp)
 
 ;; (when *spell-check-support-enabled*
-;;   (require 'init-spelling))
+(require 'init-spelling)
 
 ;; (require 'init-marmalade)
 ;; (require 'init-misc)
@@ -113,6 +112,7 @@
 ;;----------------------------------------------------------------------------
 (require 'init-comment)
 (require 'init-smart-copy)
+(require 'init-smarter-compile)
 (require 'init-customer)
 (require 'init-helm)
 (require 'init-elpy)

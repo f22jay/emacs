@@ -28,6 +28,7 @@
 ;; delete the last space
 ;; (global-set-key (kbd "C-<") 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(global-set-key (kbd "M-;") 'comment-or-uncomment-region)
 
 ;; <F11> -> start grep
 (define-key global-map [(f11)] 'rgrep)
@@ -35,6 +36,7 @@
 ;; <F6> -> start find
 (define-key global-map [(f6)] 'find-dired)
 
+(define-key global-map [(f8)] 'smarter-compile)
 
 ;;solarized
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/color-theme-solarized-20120301/")
@@ -302,5 +304,14 @@ A numeric argument serves as a repeat count."
 (require-package 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(defun my-comment-or-uncomment-region (beg end &optional arg)
+  (interactive (if (use-region-p)
+                   (list (region-beginning) (region-end) nil)
+                 (list (line-beginning-position)
+                       (line-beginning-position 2))))
+  (comment-or-uncomment-region beg end arg)
+  )
+(global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
 
 (provide 'init-customer)
