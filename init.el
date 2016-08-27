@@ -1,4 +1,5 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "themes" user-emacs-directory))
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
@@ -50,16 +51,13 @@
 (require 'init-recentf)
 (require 'init-ido)
 (require 'init-yasnippet)
-(require 'init-hippie-expand)
 (require 'init-auto-complete)
 ;; (require 'init-windows)
 ;; (require 'init-sessions)
-(require 'init-fonts)
 ;; (require 'init-mmm)
 ;; (require 'init-tabbar)
 (require 'init-editing-utils)
 (require 'init-evil)
-(require 'init-matlab)
 
 ;; (require 'init-vc)
 ;; (require 'init-darcs)
@@ -68,7 +66,6 @@
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
 (require 'init-markdown)
-(require 'init-auctex)
 ;; (require 'init-csv)
 ;; (require 'init-erlang)
 ;; (require 'init-javascript)
@@ -124,6 +121,9 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
+
+;;(require 'molokai-theme)
+(load-theme 'molokai t)
 
 
 ;;----------------------------------------------------------------------------

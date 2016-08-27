@@ -1,4 +1,6 @@
 (require-package 'helm)
+
+(add-to-list 'load-path "~/.emacs.d/elpa")
 (require 'helm)
 (require 'helm-config)
 

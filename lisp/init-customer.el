@@ -116,26 +116,6 @@ Date:    %s
 (prefer-coding-system 'gbk) ; ´ËÊ±bufferÐÂ½¨ºÍ¶ÁÈ¡¶¼Ä¬ÈÏÊÇgbk,Ò²¿ÉÒÔM-x prefer-coding-system Ö»Ö´ÐÐÒ»´Î
 (setq default-buffer-file-coding-system 'gbk)
 
-
-(require 'helm-gtags)
-(setq helm-gtags-ignore-case t
-    helm-gtags-auto-update t
-    helm-gtags-use-input-at-cursor t
-    helm-gtags-pulse-at-cursor t
-    helm-gtags-prefix-key "\C-cg"
-    helm-gtags-suggested-key-mapping t)
-(defun set-helm-gtags-keybindings ()
-  (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
-  (define-key helm-gtags-mode-map (kbd "C-c g s") 'helm-gtags-select)
-  (define-key helm-gtags-mode-map (kbd "C-c g g") 'helm-gtags-create-tags)
-  (define-key helm-gtags-mode-map (kbd "M-."	 ) 'helm-gtags-dwim)
-  (define-key helm-gtags-mode-map (kbd "M-,"	 ) 'helm-gtags-pop-stack)
-  (define-key helm-gtags-mode-map (kbd "C-c g p") 'helm-gtags-previous-history)
-  (define-key helm-gtags-mode-map (kbd "C-c g n") 'helm-gtags-next-history))
-(add-hook 'helm-gtags-mode-hook 'set-helm-gtags-keybindings)
-(add-hook 'c++-mode-hook 'helm-gtags-mode)
-(add-hook 'c-mode-hook 'helm-gtags-mode)
-
 ;;设定行距
 (setq default-line-spacing 0)
 
