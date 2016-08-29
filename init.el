@@ -52,6 +52,7 @@
 (require 'init-ido)
 (require 'init-yasnippet)
 (require 'init-auto-complete)
+(require 'init-ac-source)
 ;; (require 'init-windows)
 ;; (require 'init-sessions)
 ;; (require 'init-mmm)
@@ -74,7 +75,7 @@
 ;; (require 'init-html)
 ;; (require 'init-css)
 ;; (require 'init-haml)
-(require 'init-python-mode)
+;;(require 'init-python-mode)
 ;; (require 'init-haskell)
 ;; (require 'init-ruby-mode)
 ;; (require 'init-rails)
@@ -89,7 +90,7 @@
 ;; (require 'init-common-lisp)
 
 ;; (when *spell-check-support-enabled*
-(require 'init-spelling)
+;(require 'init-spelling)
 
 ;; (require 'init-marmalade)
 ;; (require 'init-misc)
