@@ -152,6 +152,6 @@
 
 (require 'molokai-theme)
 (load-theme 'molokai t)
-
+(require 'google-c-style)
 
 (provide 'init)

@@ -314,4 +314,33 @@ A numeric argument serves as a repeat count."
   )
 (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
 
+;;set C indent-style
+;; (add-hook 'c-mode-hook 'linux-c-mode)
+;; (add-hook 'c++-mode-hook 'linux-cpp-mode)
+(add-hook 'c-mode-hook 'google-set-c-style)
+(add-hook 'c++-mode-hook 'google-set-c-style)
+
+(defun linux-c-mode ()
+  (define-key c-mode-map [return] 'newline-and-indent)
+  (interactive)
+  (c-set-style "K&R")
+  (c-toggle-hungry-state)
+  (setq tab-width 4)
+  (setq indent-tabs-mode nil)
+  (setq c-basic-offset 4)
+  (imenu-add-menubar-index)
+  (which-function-mode 1))
+  ;; (c-toggle-auto-state)  ;;¹Ø±Õ;×Ô¶¯»»ÐÐ
+
+(defun linux-cpp-mode()
+  (define-key c++-mode-map [return] 'newline-and-indent)
+  (interactive)
+  (c-set-style "stroustrup")
+  (c-toggle-hungry-state)
+  (setq tab-width 4)
+  (setq indent-tabs-mode nil)
+  (setq c-basic-offset 4)
+  (imenu-add-menubar-index)
+  (which-function-mode 1))
+
 (provide 'init-customer)
