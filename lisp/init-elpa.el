@@ -29,17 +29,17 @@
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("marmalade" . "http://marmalade-repo.org/packages/")
                 ("melpa" . "http://melpa.milkbox.net/packages/")))
-;;(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
 (when (< emacs-major-version 24)
   (add-to-list 'package-archives
                `("gnu" . ,(add-address-prefix "elpa.gnu.org/packages/"))))
 
-;;; Also use Melpa for most packages
-;;(add-to-list 'package-archives
-  ;;           `("melpa" . ,(add-address-prefix "melpa.org/packages/")))
-;;(add-to-list 'package-archives
-  ;;           `("melpa-stable" . ,(add-address-prefix "stable.melpa.org/packages/")))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+;; Also use Melpa for most packages
+(add-to-list 'package-archives
+            `("melpa" . ,(add-address-prefix "melpa.org/packages/")))
+(add-to-list 'package-archives
+            `("melpa-stable" . ,(add-address-prefix "stable.melpa.org/packages/")))
 
 
 ;; If gpg cannot be found, signature checking will fail, so we
