@@ -315,10 +315,10 @@ A numeric argument serves as a repeat count."
 (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
 
 ;;set C indent-style
-;; (add-hook 'c-mode-hook 'linux-c-mode)
-;; (add-hook 'c++-mode-hook 'linux-cpp-mode)
-(add-hook 'c-mode-hook 'google-set-c-style)
-(add-hook 'c++-mode-hook 'google-set-c-style)
+(add-hook 'c-mode-hook 'linux-c-mode)
+(add-hook 'c++-mode-hook 'linux-cpp-mode)
+;; (add-hook 'c-mode-hook 'google-set-c-style)
+;; (add-hook 'c++-mode-hook 'google-set-c-style)
 
 (defun linux-c-mode ()
   (define-key c-mode-map [return] 'newline-and-indent)
@@ -343,4 +343,7 @@ A numeric argument serves as a repeat count."
   (imenu-add-menubar-index)
   (which-function-mode 1))
 
+
+(global-linum-mode 1)
+(global-set-key (kbd "M-,") 'pop-tag-mark)
 (provide 'init-customer)
