@@ -7,7 +7,7 @@
  ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
  ;; (add-hook 'python-mode-hook 'flymake-mode)
 ;; (add-hook 'python-mode-hook 'yapf-mode)
-(add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+;; (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
 (setq flymake-log-level 3)
 (provide 'init-elpy)
 

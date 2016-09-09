@@ -5,10 +5,9 @@ This is my emacs configuration tree which originates from [that of Purcell's](ht
 This config now supports for the following:
 
 * C/C++
-* Matlab
-* Markdown/LaTeX
 * Haskell
-
+* python
+  read lisp/init-elpy.el install some rely
 ## Requirements
 These are requirements that **must** be met:
 
@@ -18,7 +17,6 @@ These are requirements that **must** be met:
 and these are not necessary if you don't use that language
 
 * clang 3.2-10 or greater (for C/C++, necessary for `auto-complete-clang`)
-* ghci 7.10.1 or greater (for Haskell)
 
 ### Enable TLS for securely connecting to ELPA
 ELPA is accessed over HTTP by default, which may result in security problems, so I prefer to use HTTPS instead. This can be done simply by replace the "http" in ELPA repository addresses with "https", and turn on the TLS checking.
@@ -53,7 +51,7 @@ the third-party packages regularly too:
 
 ### "Symbol's function definition is void: XXX" or "Package XXX is not available for installation"
 Errors of this type are mostly caused by obsolete package or outdated Emacs version. Thus, when you encounter
-such errors, first check that your Emacs' version has satisfied the requirement listed above in section 
+such errors, first check that your Emacs' version has satisfied the requirement listed above in section
 "Requirements", if so, do the following:
 
 ##### Execute Emacs with the `--debug-init` option, i.e.
@@ -68,7 +66,7 @@ $ emacs --debug-init
 
 ##### Now you have some choices:
   * [File an issue](https://github.com/xyguo/emacs.d/issues) and I'll help you deal with that.
-  * (A quick-and-dirty way, not recommended) Most times you can just comment out the corresponding line (which can be found through the debugging info) in the `init.el` file to bypass the initialization step that triggers the problem. 
+  * (A quick-and-dirty way, not recommended) Most times you can just comment out the corresponding line (which can be found through the debugging info) in the `init.el` file to bypass the initialization step that triggers the problem.
   * Sometimes, a package maintainer decides to change the package's name, which results in a "package not available" error. You can simply Google for the unavailable package's name and if lucky you'll find its new name. After that, [file an issue](https://github.com/xyguo/emacs.d/issues) and I'll be glad to fix the init files.
 
 ### auto-complete-clang
@@ -96,10 +94,8 @@ End of search list.
 Just use them to replace the corresponding string.
 
 ## Support/issues
-If you hit any problems, please 
+If you hit any problems, please
 
 1. Check that whether you have met system requirements listed in section "Requirements".
-2. Ensure that you are using the latest version of this code, and that you have updated your packages to the most recent available versions (see "Updates" above). 
-3. If you still experience problems, go ahead and [file an issue](https://github.com/xyguo/emacs.d/issues).  
-
--Xiang-Yu Guo
+2. Ensure that you are using the latest version of this code, and that you have updated your packages to the most recent available versions (see "Updates" above).
+3. If you still experience problems, go ahead and [file an issue](https://github.com/xyguo/emacs.d/issues).
