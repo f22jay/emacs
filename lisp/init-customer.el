@@ -3,7 +3,7 @@
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 (global-set-key (kbd "M-0") 'other-window)
-(global-set-key (kbd "M-s M-s") 'shell)
+(global-set-key (kbd "M-s M-s") 'eshell)
 (global-set-key (kbd "\C-xf") 'find-file)
 (global-set-key ( kbd "C-\\") 'redo)
 (global-set-key ( kbd "C-/") 'undo)
@@ -160,12 +160,7 @@ Date:    %s
 ;;只渲染当前屏幕语法高亮，加快显示速度
 (setq font-lock-maximum-decoration t)
 
-;;将错误信息显示在回显区
-(condition-case err
-   (progn
-   (require 'xxx) )
- (error
-  (message "Can't load xxx-mode %s" (cdr err))))
+
 ;;使用X剪贴板
 (setq x-select-enable-clipboard t)
 ;;;;;;;; 使用空格缩进 ;;;;;;;;
