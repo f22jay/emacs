@@ -341,4 +341,8 @@ A numeric argument serves as a repeat count."
 
 (global-linum-mode 1)
 (global-set-key (kbd "M-,") 'pop-tag-mark)
+;; set shell
+(setq shell-file-name "/bin/bash")
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+ (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
 (provide 'init-customer)
