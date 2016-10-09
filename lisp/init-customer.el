@@ -309,10 +309,10 @@ A numeric argument serves as a repeat count."
 (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
 
 ;;set C indent-style
-(add-hook 'c-mode-hook 'linux-c-mode)
-(add-hook 'c++-mode-hook 'linux-cpp-mode)
-;; (add-hook 'c-mode-hook 'google-set-c-style)
-;; (add-hook 'c++-mode-hook 'google-set-c-style)
+;; (add-hook 'c-mode-hook 'linux-c-mode)
+;; (add-hook 'c++-mode-hook 'linux-cpp-mode)
+(add-hook 'c-mode-hook 'google-set-c-style)
+(add-hook 'c++-mode-hook 'google-set-c-style)
 
 (defun linux-c-mode ()
   (define-key c-mode-map [return] 'newline-and-indent)
