@@ -13,6 +13,7 @@
 (global-set-key (kbd "M-s 3") 'insert-baidu-comment-python)
 (global-set-key (kbd "M-s m") 'insert-my-comment-1)
 (global-set-key (kbd "M-s r") 'revert-buffer)
+(global-set-key (kbd "M-9") 'shell-toggle-cd)
 
 ;; set command preffix
 ;; (define-prefix-command 'alt-z-map)
@@ -357,10 +358,6 @@ A numeric argument serves as a repeat count."
 (global-linum-mode 1)
 (global-set-key (kbd "M-,") 'pop-tag-mark)
 (desktop-save-mode 1)
-;; set shell
-(setq shell-file-name "/bin/bash")
-(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
-(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
 
 
 (auto-insert-mode)
@@ -368,4 +365,6 @@ A numeric argument serves as a repeat count."
 (define-auto-insert "\\.py" 'insert-baidu-comment-python)
 (define-auto-insert "\\.\\([Cc]\\|cc\\|cpp\\|h\\)\\'" 'insert-baidu-comment-1)
 (define-auto-insert "\\.sh" 'insert-baidu-comment-shell)
+
+(require-package 'shell-toggle)
 (provide 'init-customer)
