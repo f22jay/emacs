@@ -161,12 +161,7 @@ Date:    %s
 ;;只渲染当前屏幕语法高亮，加快显示速度
 (setq font-lock-maximum-decoration t)
 
-;;将错误信息显示在回显区
-(condition-case err
-   (progn
-   (require 'xxx) )
- (error
-  (message "Can't load xxx-mode %s" (cdr err))))
+
 ;;使用X剪贴板
 (setq x-select-enable-clipboard t)
 ;;;;;;;; 使用空格缩进 ;;;;;;;;
@@ -316,10 +311,10 @@ A numeric argument serves as a repeat count."
 (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
 
 ;;set C indent-style
-(add-hook 'c-mode-hook 'linux-c-mode)
-(add-hook 'c++-mode-hook 'linux-cpp-mode)
-;; (add-hook 'c-mode-hook 'google-set-c-style)
-;; (add-hook 'c++-mode-hook 'google-set-c-style)
+;; (add-hook 'c-mode-hook 'linux-c-mode)
+;; (add-hook 'c++-mode-hook 'linux-cpp-mode)
+(add-hook 'c-mode-hook 'google-set-c-style)
+(add-hook 'c++-mode-hook 'google-set-c-style)
 
 (defun linux-c-mode ()
   (define-key c-mode-map [return] 'newline-and-indent)
@@ -348,4 +343,8 @@ A numeric argument serves as a repeat count."
 (global-linum-mode 1)
 (global-set-key (kbd "M-,") 'pop-tag-mark)
 (desktop-save-mode 1)
+;; set shell
+(setq shell-file-name "/bin/bash")
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+ (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
 (provide 'init-customer)

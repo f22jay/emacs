@@ -1,4 +1,6 @@
 (require-package 'helm)
+(require-package 'switch-window)
+(global-set-key (kbd "C-x o") 'switch-window)
 
 (add-to-list 'load-path "~/.emacs.d/elpa")
 (require 'helm)

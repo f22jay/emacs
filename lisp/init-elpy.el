@@ -1,5 +1,6 @@
 (require-package 'elpy)
 (require-package 'flymake-python-pyflakes)
+(require-package 'virtualenv)
 ;; (require-package 'py-yapf)
 
 (elpy-enable)
