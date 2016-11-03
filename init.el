@@ -34,7 +34,6 @@
 (require 'init-customer)
 (require 'init-helm)
 (require 'init-elpy)
-(require 'init-session)
 
 ;; (require 'server)
 ;; (unless (server-running-p)
@@ -52,5 +51,6 @@
 (require 'molokai-theme)
 (load-theme 'molokai t)
 (require 'google-c-style)
+(require 'template)
 
 (provide 'init)

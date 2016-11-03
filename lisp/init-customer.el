@@ -66,8 +66,9 @@
 
 (defun insert-baidu-comment-1()
   (interactive)
-  (insert (message "// Copyright 2016 Baidu Inc. All Rights Reserved.
-// Author : zhangfangjie (f22jay@163.com)
+  (insert (message "//-*-c++-*-
+// Copyright 2016 Baidu Inc. All Rights Reserved.
+// Author : zhangfangjie (zhangfangjie@baidu.com)
 // Date %s
 // Breif :
 
@@ -113,6 +114,19 @@ Breif:
 Authors: zhangfangjie(zhangfangjie@baidu.com)
 Date:    %s
 \"\"\"
+"  (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
+
+(defun insert-baidu-comment-shell()
+  (interactive)
+  (insert (message "#!/usr/bin/env bash
+################################################################################
+#
+# Copyright (c) 2016 Baidu.com, Inc. All Rights Reserved
+#
+################################################################################
+#Breif:
+#Authors: zhangfangjie(zhangfangjie@baidu.com)
+#Date:    %s
 "  (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
 
 
@@ -346,5 +360,12 @@ A numeric argument serves as a repeat count."
 ;; set shell
 (setq shell-file-name "/bin/bash")
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
- (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
+
+
+(auto-insert-mode)
+(setq auto-insert-query nil)
+(define-auto-insert "\\.py" 'insert-baidu-comment-python)
+(define-auto-insert "\\.\\([Cc]\\|cc\\|cpp\\|h\\)\\'" 'insert-baidu-comment-1)
+(define-auto-insert "\\.sh" 'insert-baidu-comment-shell)
 (provide 'init-customer)
