@@ -34,6 +34,7 @@
 (require 'init-customer)
 (require 'init-helm)
 (require 'init-elpy)
+(require 'init-session)
 
 ;; (require 'server)
 ;; (unless (server-running-p)

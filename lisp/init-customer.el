@@ -4,7 +4,6 @@
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 (global-set-key (kbd "M-0") 'other-window)
 (global-set-key (kbd "M-s M-s") 'shell)
-(global-set-key (kbd "\C-xf") 'find-file)
 (global-set-key ( kbd "C-\\") 'redo)
 (global-set-key ( kbd "C-/") 'undo)
 (global-set-key ( kbd "C-_") 'undo)
@@ -67,11 +66,13 @@
 
 (defun insert-baidu-comment-1()
   (interactive)
-  (insert "// Copyright 2016 Baidu Inc. All Rights Reserved.
-// Author : zhangfangjie (zhangfangjie@baidu.com)
-//
+  (insert (message "// Copyright 2016 Baidu Inc. All Rights Reserved.
+// Author : zhangfangjie (f22jay@163.com)
+// Date %s
 // Breif :
-"))
+
+" (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
+
 
 (defun insert-my-comment-1()
   (interactive)
@@ -346,4 +347,5 @@ A numeric argument serves as a repeat count."
 
 (global-linum-mode 1)
 (global-set-key (kbd "M-,") 'pop-tag-mark)
+(desktop-save-mode 1)
 (provide 'init-customer)
