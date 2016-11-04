@@ -13,7 +13,7 @@
 (global-set-key (kbd "M-s 3") 'insert-baidu-comment-python)
 (global-set-key (kbd "M-s m") 'insert-my-comment-1)
 (global-set-key (kbd "M-s r") 'revert-buffer)
-(global-set-key (kbd "M-9") 'shell-toggle-cd)
+(global-set-key (kbd "M-s n") 'rename-buffer)
 
 ;; set command preffix
 ;; (define-prefix-command 'alt-z-map)
@@ -38,18 +38,6 @@
 
 (define-key global-map [(f8)] 'smarter-compile)
 
-;;solarized
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/color-theme-solarized-20120301/")
-
-;; ;; material
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-material-theme")
-
-;; (load-theme 'solarized-dark t)
-;;(load-theme 'molokai t)
-
-
-;; set the default test coding system
 (setq default-buffer-file-coding-system 'utf-8)
 
 ;; <F9> -> Save all file
@@ -366,5 +354,36 @@ A numeric argument serves as a repeat count."
 (define-auto-insert "\\.\\([Cc]\\|cc\\|cpp\\|h\\)\\'" 'insert-baidu-comment-1)
 (define-auto-insert "\\.sh" 'insert-baidu-comment-shell)
 
-(require-package 'shell-toggle)
+(setq wcy-shell-mode-directory-changed t)
+
+(defun wcy-shell-mode-auto-rename-buffer-output-filter (text)
+  (if (and (eq major-mode 'shell-mode)
+           wcy-shell-mode-directory-changed)
+      (progn
+        (let ((bn  (concat "sh:" default-directory)))
+          (if (not (string= (buffer-name) bn))
+              (rename-buffer bn t)))
+        (setq wcy-shell-mode-directory-changed nil))))
+
+
+(defun wcy-shell-mode-auto-rename-buffer-input-filter (text)
+  (if (eq major-mode 'shell-mode)
+      (if ( string-match "^[ \t]*cd *" text)
+          (setq wcy-shell-mode-directory-changed t))))
+(add-hook 'comint-output-filter-functions 'wcy-shell-mode-auto-rename-buffer-output-filter)
+(add-hook 'comint-input-filter-functions 'wcy-shell-mode-auto-rename-buffer-input-filter )
+;;exit shell and exit buffer
+(add-hook 'shell-mode-hook 'wcy-shell-mode-hook-func)
+(defun wcy-shell-mode-hook-func  ()
+  (set-process-sentinel (get-buffer-process (current-buffer))
+                            #'wcy-shell-mode-kill-buffer-on-exit)
+      )
+(defun wcy-shell-mode-kill-buffer-on-exit (process state)
+  (message "%s" state)
+  (if (or
+       (string-match "exited abnormally with code.*" state)
+       (string-match "finished" state))
+      (kill-buffer (current-buffer))))
+
+
 (provide 'init-customer)

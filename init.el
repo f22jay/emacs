@@ -51,7 +51,6 @@
 (require 'molokai-theme)
 (load-theme 'molokai t)
 (require 'google-c-style)
-(require 'template)
 
 (provide 'init)
 (custom-set-variables
