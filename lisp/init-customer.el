@@ -347,7 +347,7 @@ A numeric argument serves as a repeat count."
 
 (global-linum-mode 1)
 (global-set-key (kbd "M-,") 'pop-tag-mark)
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 
 
 (auto-insert-mode)
@@ -386,6 +386,11 @@ A numeric argument serves as a repeat count."
 ;;        (string-match "exited abnormally with code.*" state)
 ;;        (string-match "finished" state))
 ;;       (kill-buffer (current-buffer))))
-
-
+;;use ipython
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i")
+;; 在.emacs文件中添加下面这行表示使用拷贝模式
+;; (setq backup-by-copying t) ;; 默认是nil，开启之后使用拷贝模式
+;; 将~备份文件移到save目录
+(setq backup-directory-alist `(("." . "~/.saves")))
 (provide 'init-customer)
