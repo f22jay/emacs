@@ -30,7 +30,7 @@
 (require 'init-git)
 (require 'init-comment)
 (require 'init-smart-copy)
-(require 'init-smarter-compile)
+;; (require 'init-smarter-compile)
 (require 'init-customer)
 (require 'init-helm)
 (require 'init-elpy)
