@@ -3,7 +3,7 @@
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 (global-set-key (kbd "M-0") 'other-window)
-(global-set-key (kbd "M-s M-s") 'shell)
+(global-set-key (kbd "M-s M-s") 'new-shell)
 (global-set-key ( kbd "C-\\") 'redo)
 (global-set-key ( kbd "C-/") 'undo)
 (global-set-key ( kbd "C-_") 'undo)
@@ -333,7 +333,7 @@ A numeric argument serves as a repeat count."
   (which-function-mode 1))
   ;; (c-toggle-auto-state)  ;;¹Ø±Õ;×Ô¶¯»»ÐÐ
 
-(defun linux-cpp-mode()
+(defun wcy-cpp-mode()
   (define-key c++-mode-map [return] 'newline-and-indent)
   (interactive)
   (c-set-style "stroustrup")
@@ -357,41 +357,27 @@ A numeric argument serves as a repeat count."
 (define-auto-insert "\\.\\([Cc]\\|cc\\|cpp\\|h\\)\\'" 'insert-baidu-comment-1)
 (define-auto-insert "\\.sh" 'insert-baidu-comment-shell)
 
-;; (setq wcy-shell-mode-directory-changed t)
-
-;; (defun wcy-shell-mode-auto-rename-buffer-output-filter (text)
-;;   (if (and (eq major-mode 'shell-mode)
-;;            wcy-shell-mode-directory-changed)
-;;       (progn
-;;         (let ((bn  (concat "sh:" default-directory)))
-;;           (if (not (string= (buffer-name) bn))
-;;               (rename-buffer bn t)))
-;;         (setq wcy-shell-mode-directory-changed nil))))
-
-
-;; (defun wcy-shell-mode-auto-rename-buffer-input-filter (text)
-;;   (if (eq major-mode 'shell-mode)
-;;       (if ( string-match "^[ \t]*cd *" text)
-;;           (setq wcy-shell-mode-directory-changed t))))
-;; (add-hook 'comint-output-filter-functions 'wcy-shell-mode-auto-rename-buffer-output-filter)
-;; (add-hook 'comint-input-filter-functions 'wcy-shell-mode-auto-rename-buffer-input-filter )
-;; ;;exit shell and exit buffer
-;; (add-hook 'shell-mode-hook 'wcy-shell-mode-hook-func)
-;; (defun wcy-shell-mode-hook-func  ()
-;;   (set-process-sentinel (get-buffer-process (current-buffer))
-;;                             #'wcy-shell-mode-kill-buffer-on-exit)
-;;       )
-;; (defun wcy-shell-mode-kill-buffer-on-exit (process state)
-;;   (message "%s" state)
-;;   (if (or
-;;        (string-match "exited abnormally with code.*" state)
-;;        (string-match "finished" state))
-;;       (kill-buffer (current-buffer))))
-;;use ipython
+(setq multi-shell-command "/bin/bash")
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i")
 ;; 在.emacs文件中添加下面这行表示使用拷贝模式
 ;; (setq backup-by-copying t) ;; 默认是nil，开启之后使用拷贝模式
 ;; 将~备份文件移到save目录
 (setq backup-directory-alist `(("." . "~/.saves")))
+
+;;create shell, and buffer-name is current dir
+(defun new-shell ()
+  (interactive)
+  (let (
+        (currentbuf (get-buffer-window (current-buffer)))
+        (newbuf  (concat "sh:" default-directory))
+        )
+
+    (generate-new-buffer newbuf)
+    (set-window-dedicated-p currentbuf nil)
+    (set-window-buffer currentbuf newbuf)
+    (shell newbuf)
+    )
+  )
+
 (provide 'init-customer)
