@@ -3,8 +3,8 @@
 # key: *
 # --
 /**
-* @brief ${0:short description}
-* @param $1
+* @brief $1
 * @param $2
-* @return $3
+* @param $3
+* @return $4
 */
