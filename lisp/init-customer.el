@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/.emacs.d/snippets")
 (global-set-key (kbd "M-4") 'delete-window)
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
@@ -16,6 +17,9 @@
 (global-set-key (kbd "M-s ,") 'rename-buffer)
 (global-set-key (kbd "M-s .") 'isearch-forward-symbol-at-point)
 (global-set-key (kbd "M-s k") 'kill-this-buffer)
+(global-set-key (kbd "M-[") 'backward-paragraph)
+(global-set-key (kbd "M-]") 'forward-paragraph)
+(global-set-key (kbd "M-.") 'helm-gtags-find-tag)
 
 ;; set command preffix
 ;; (define-prefix-command 'alt-z-map)
