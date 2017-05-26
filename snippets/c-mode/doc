@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: docblock
+# key: d
+# --
+/**
+* @brief ${1:short description}
+* @param $2
+* @param $3
+* @return $4
+*/
+$0
