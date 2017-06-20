@@ -383,5 +383,4 @@ A numeric argument serves as a repeat count."
     (shell newbuf)
     )
   )
-
 (provide 'init-customer)

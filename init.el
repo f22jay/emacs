@@ -47,11 +47,12 @@
 ;;            (lambda ()
 ;;              (message "init completed in %.2fms"
 ;;                       (sanityinc/time-subtract-millis after-init-time before-init-time))))
-
+(require 'init-themes)
 (require 'molokai-theme)
 (load-theme 'molokai t)
 (require 'google-c-style)
 
+(require 'init-js)
 (provide 'init)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
