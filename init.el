@@ -1,3 +1,10 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "themes" user-emacs-directory))
 
@@ -49,10 +56,10 @@
 ;;                       (sanityinc/time-subtract-millis after-init-time before-init-time))))
 (require 'init-themes)
 (require 'molokai-theme)
-(load-theme 'molokai t)
+;; (load-theme 'molokai t)
 (require 'google-c-style)
 
-(require 'init-js)
+;; (require 'init-js)
 (provide 'init)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

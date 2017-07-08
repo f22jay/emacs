@@ -10,9 +10,9 @@
 (require-package 'monokai-theme)
 
 (require 'dracula-theme)
-(load-theme 'dracula t)
+;; (load-theme 'dracula t)
 (require 'solarized-dark-theme)
-(load-theme 'solarized-dark t)
+;; (load-theme 'solarized-dark t)
 (require 'monokai-theme)
 (load-theme 'monokai t)
 

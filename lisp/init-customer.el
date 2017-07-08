@@ -17,8 +17,8 @@
 (global-set-key (kbd "M-s ,") 'rename-buffer)
 (global-set-key (kbd "M-s .") 'isearch-forward-symbol-at-point)
 (global-set-key (kbd "M-s k") 'kill-this-buffer)
-(global-set-key (kbd "M-[") 'backward-paragraph)
-(global-set-key (kbd "M-]") 'forward-paragraph)
+;; (global-set-key (kbd "M-[") 'backward-paragraph)
+;; (global-set-key (kbd "M-]") 'forward-paragraph)
 (global-set-key (kbd "M-.") 'helm-gtags-find-tag)
 
 ;; set command preffix
@@ -32,7 +32,6 @@
 (global-set-key (kbd "M--") 'switch-to-prev-buffer)
 (global-set-key (kbd "M-=") 'switch-to-next-buffer)
 ;; delete the last space
-;; (global-set-key (kbd "C-<") 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (global-set-key (kbd "M-;") 'comment-or-uncomment-region)
 
@@ -47,11 +46,11 @@
 (setq default-buffer-file-coding-system 'utf-8)
 
 ;; <F9> -> Save all file
-;;(define-key global-map [(f9)] 'save-some-buffers)
+(define-key global-map [(f9)] 'save-some-buffers)
 ;; <F9> -> linum-mode
-(define-key global-map [(f9)] 'linum-mode)
+(define-key global-map [(f5)] 'linum-mode)
 
-;; insert-current-time
+;insert-current-time
 (defun insert-current-date ()
     "Insert the current date"
     (interactive "*")
@@ -62,8 +61,8 @@
 (defun insert-baidu-comment-1()
   (interactive)
   (insert (message "//-*-c++-*-
-// Copyright 2016 Baidu Inc. All Rights Reserved.
-// Author : zhangfangjie (zhangfangjie@baidu.com)
+// All Rights Reserved.
+// Author : zhangfangjie
 // Date %s
 // Breif :
 
@@ -83,14 +82,14 @@
   (interactive)
   (insert (message "/** **************************************************************************
 *
-*         Copyright (c) 2016 Baidu.cOm, Inc. All Rights Reserved
+*         All Rights Reserved
 *
 x* ****************************************************************************
 */
 
 /**
 * @File %s
-* @Author zhangfangjie <zhangfangjie@baidu.com>
+* @Author zhangfangjie
 * @Date %s
 * @Version 1.0
 * @Brief :
@@ -101,12 +100,12 @@ x* ****************************************************************************
   (interactive)
   (insert (message "################################################################################
 #
-# Copyright (c) 2016 Baidu.com, Inc. All Rights Reserved
+# All Rights Reserved
 #
 ################################################################################
 \"\"\"
 Breif:
-Authors: zhangfangjie(zhangfangjie@baidu.com)
+Authors: zhangfangjie
 Date:    %s
 \"\"\"
 "  (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
@@ -116,17 +115,13 @@ Date:    %s
   (insert (message "#!/usr/bin/env bash
 ################################################################################
 #
-# Copyright (c) 2016 Baidu.com, Inc. All Rights Reserved
+# All Rights Reserved
 #
 ################################################################################
 #Breif:
-#Authors: zhangfangjie(zhangfangjie@baidu.com)
+#Authors: zhangfangjie
 #Date:    %s
 "  (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
-
-
-(prefer-coding-system 'gbk) ; ´ËÊ±bufferÐÂ½¨ºÍ¶ÁÈ¡¶¼Ä¬ÈÏÊÇgbk,Ò²¿ÉÒÔM-x prefer-coding-system Ö»Ö´ÐÐÒ»´Î
-(setq default-buffer-file-coding-system 'gbk)
 
 ;;设定行距
 (setq default-line-spacing 0)
@@ -135,7 +130,7 @@ Date:    %s
 (setq default-fill-column 90)
 
 ;;缺省模式 text-mode
-;; (setq default-major-mode 'text-mode)
+(setq default-major-mode 'text-mode)
 
 ;;设置删除纪录
 (setq kill-ring-max 200)
@@ -165,11 +160,8 @@ Date:    %s
 
 ;;标题栏显示 %f 缓冲区完整路径 %p 页面百分数 %l 行号
 (setq frame-title-format "%f")
-
-
 ;;只渲染当前屏幕语法高亮，加快显示速度
 (setq font-lock-maximum-decoration t)
-
 
 ;;使用X剪贴板
 (setq x-select-enable-clipboard t)
@@ -380,7 +372,19 @@ A numeric argument serves as a repeat count."
     (generate-new-buffer newbuf)
     (set-window-dedicated-p currentbuf nil)
     (set-window-buffer currentbuf newbuf)
-    (shell newbuf)
+    (eshell newbuf)
     )
   )
+(set-language-environment 'Chinese-GB)
+(setq locale-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(set-default buffer-file-coding-system 'utf8)
+(set-default-coding-systems 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(modify-coding-system-alist 'process "*" 'utf-8)
+(setq default-process-coding-system '(utf-8 . utf-8))
+(setq-default pathname-coding-system 'utf-8)
+(set-file-name-coding-system 'utf-8)
 (provide 'init-customer)
