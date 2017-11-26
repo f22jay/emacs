@@ -41,7 +41,7 @@
 ;; <F6> -> start find
 (define-key global-map [(f6)] 'find-dired)
 
-(define-key global-map [(f8)] 'smarter-compile)
+(define-key global-map [(f8)] 'smart-compile)
 
 (setq default-buffer-file-coding-system 'utf-8)
 
@@ -49,79 +49,6 @@
 (define-key global-map [(f9)] 'save-some-buffers)
 ;; <F9> -> linum-mode
 (define-key global-map [(f5)] 'linum-mode)
-
-;insert-current-time
-(defun insert-current-date ()
-    "Insert the current date"
-    (interactive "*")
-    (insert (format-time-string "%Y/%m/%d %H:%M:%S" (current-time))))
-    ;; (insert (format-time-string "%Y/%m/%d" (current-time))))
-    (global-set-key "\C-xt" 'insert-current-date)
-
-(defun insert-baidu-comment-1()
-  (interactive)
-  (insert (message "//-*-c++-*-
-// All Rights Reserved.
-// Author : zhangfangjie
-// Date %s
-// Breif :
-
-" (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
-
-
-(defun insert-my-comment-1()
-  (interactive)
-  (insert (message "// Copyright maverick Inc. All Rights Reserved.
-// Author : zhangfangjie (f22jay@163.com)
-// Date %s
-// Breif :
-
-" (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
-
-(defun insert-baidu-comment-2()
-  (interactive)
-  (insert (message "/** **************************************************************************
-*
-*         All Rights Reserved
-*
-x* ****************************************************************************
-*/
-
-/**
-* @File %s
-* @Author zhangfangjie
-* @Date %s
-* @Version 1.0
-* @Brief :
-**/
-" (current-buffer) (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
-
-(defun insert-baidu-comment-python()
-  (interactive)
-  (insert (message "################################################################################
-#
-# All Rights Reserved
-#
-################################################################################
-\"\"\"
-Breif:
-Authors: zhangfangjie
-Date:    %s
-\"\"\"
-"  (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
-
-(defun insert-baidu-comment-shell()
-  (interactive)
-  (insert (message "#!/usr/bin/env bash
-################################################################################
-#
-# All Rights Reserved
-#
-################################################################################
-#Breif:
-#Authors: zhangfangjie
-#Date:    %s
-"  (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
 
 ;;设定行距
 (setq default-line-spacing 0)
@@ -142,7 +69,6 @@ Date:    %s
 ;高亮显示成对括号，但不来回弹跳
 (show-paren-mode t)
 (setq show-paren-style 'parentheses)
-
 ;;使用 y or n 提问
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -312,10 +238,10 @@ A numeric argument serves as a repeat count."
 (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
 
 ;;set C indent-style
-;; (add-hook 'c-mode-hook 'linux-c-mode)
-;; (add-hook 'c++-mode-hook 'linux-cpp-mode)
-(add-hook 'c-mode-hook 'google-set-c-style)
-(add-hook 'c++-mode-hook 'google-set-c-style)
+(add-hook 'c-mode-hook 'linux-c-mode)
+(add-hook 'c++-mode-hook 'linux-cpp-mode)
+;(add-hook 'c-mode-hook 'google-set-c-style)
+;(add-hook 'c++-mode-hook 'google-set-c-style)
 
 (defun linux-c-mode ()
   (define-key c-mode-map [return] 'newline-and-indent)
@@ -329,7 +255,7 @@ A numeric argument serves as a repeat count."
   (which-function-mode 1))
   ;; (c-toggle-auto-state)  ;;¹Ø±Õ;×Ô¶¯»»ÐÐ
 
-(defun wcy-cpp-mode()
+(defun linux-cpp-mode()
   (define-key c++-mode-map [return] 'newline-and-indent)
   (interactive)
   (c-set-style "stroustrup")
@@ -372,10 +298,10 @@ A numeric argument serves as a repeat count."
     (generate-new-buffer newbuf)
     (set-window-dedicated-p currentbuf nil)
     (set-window-buffer currentbuf newbuf)
-    (eshell newbuf)
+    (shell newbuf)
     )
   )
-(set-language-environment 'Chinese-GB)
+;; (set-language-environment 'Chinese-GB)
 (setq locale-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
@@ -387,4 +313,5 @@ A numeric argument serves as a repeat count."
 (setq default-process-coding-system '(utf-8 . utf-8))
 (setq-default pathname-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
+(set-language-environment 'UTF-8)
 (provide 'init-customer)

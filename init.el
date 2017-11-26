@@ -24,24 +24,24 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
-;; (require 'init-dired)
+(require 'init-dired)
 ;; (require 'init-recentf)
 ;; (require 'init-ido)
+;; (require 'init-auto-complete)
+;; (require 'init-ac-source)
 (require 'init-yasnippet)
-(require 'init-auto-complete)
-(require 'init-ac-source)
 ;; (require 'init-evil)
 
 ;; (require 'init-vc)
 ;; (require 'init-darcs)
 (require 'init-git)
+(require 'init-sh)
 (require 'init-comment)
 (require 'init-smart-copy)
-;; (require 'init-smarter-compile)
+(require 'init-smarter-compile)
 (require 'init-customer)
 (require 'init-helm)
 (require 'init-elpy)
-
 ;; (require 'server)
 ;; (unless (server-running-p)
 ;;   (server-start))
@@ -54,11 +54,26 @@
 ;;            (lambda ()
 ;;              (message "init completed in %.2fms"
 ;;                       (sanityinc/time-subtract-millis after-init-time before-init-time))))
+;; (require 'init-term-mode)
+(require 'init-linum-mode)
+(require 'init-gud)
 (require 'init-themes)
 (require 'molokai-theme)
 ;; (load-theme 'molokai t)
 (require 'google-c-style)
 
+(setq *no-memory* (cond
+                   (*is-a-mac*
+                    (< (string-to-number (nth 1 (split-string (shell-command-to-string "sysctl hw.physmem")))) 4000000000))
+                   (*linux* nil)
+                   (t nil)))
+
+(require 'init-flycheck)
+(require 'init-spelling)
+(require 'init-company)
+(require 'init-gtags)
+(require 'init-gud)
+(require 'init-sh)
 ;; (require 'init-js)
 (provide 'init)
 (custom-set-variables
@@ -66,6 +81,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (dropdown-list flycheck smart-compile smarter-compile flymake-cppcheck dired+ evil multi-term virtualenv switch-window solarized-theme pos-tip monokai-theme magit helm-gtags fuzzy flymake-python-pyflakes elpy dracula-theme autopair auto-complete-clang ac-math)))
  '(send-mail-function (quote mailclient-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
