@@ -17,8 +17,8 @@
 (global-set-key (kbd "M-s ,") 'rename-buffer)
 (global-set-key (kbd "M-s .") 'isearch-forward-symbol-at-point)
 (global-set-key (kbd "M-s k") 'kill-this-buffer)
-;; (global-set-key (kbd "M-[") 'backward-paragraph)
-;; (global-set-key (kbd "M-]") 'forward-paragraph)
+(global-set-key (kbd "M-a") 'backward-paragraph)
+(global-set-key (kbd "M-e") 'forward-paragraph)
 (global-set-key (kbd "M-.") 'helm-gtags-find-tag)
 
 ;; set command preffix

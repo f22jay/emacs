@@ -61,15 +61,8 @@
 (require 'molokai-theme)
 ;; (load-theme 'molokai t)
 (require 'google-c-style)
-
-(setq *no-memory* (cond
-                   (*is-a-mac*
-                    (< (string-to-number (nth 1 (split-string (shell-command-to-string "sysctl hw.physmem")))) 4000000000))
-                   (*linux* nil)
-                   (t nil)))
-
 (require 'init-flycheck)
-(require 'init-spelling)
+
 (require 'init-company)
 (require 'init-gtags)
 (require 'init-gud)
