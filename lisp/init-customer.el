@@ -272,12 +272,84 @@ A numeric argument serves as a repeat count."
 ;; autosave opens file list, next open emacs will open these buffer
 ;; (desktop-save-mode 1)
 
+;; insert-current-time
+(defun insert-current-date ()
+    "Insert the current date"
+    (interactive "*")
+    (insert (format-time-string "%Y/%m/%d %H:%M:%S" (current-time))))
+    ;; (insert (format-time-string "%Y/%m/%d" (current-time))))
+    (global-set-key "\C-xt" 'insert-current-date)
+
+(defun insert-baidu-comment-1()
+  (interactive)
+  (insert (message "//-*-c++-*-
+// Copyright 2016 Baidu Inc. All Rights Reserved.
+// Author : zhangfangjie (zhangfangjie@baidu.com)
+// Date %s
+// Breif :
+
+" (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
+
+
+(defun insert-my-comment-1()
+  (interactive)
+  (insert (message "// All Rights Reserved.
+// Author : zhangfangjie (f22jay@163.com)
+// Date %s
+// Breif :
+
+" (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
+
+(defun insert-baidu-comment-2()
+  (interactive)
+  (insert (message "/** **************************************************************************
+*
+*         Copyright (c) 2016 Baidu.cOm, Inc. All Rights Reserved
+*
+x* ****************************************************************************
+*/
+
+/**
+* @File %s
+* @Author zhangfangjie <zhangfangjie@baidu.com>
+* @Date %s
+* @Version 1.0
+* @Brief :
+**/
+" (current-buffer) (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
+
+(defun insert-comment-python()
+  (interactive)
+  (insert (message "################################################################################
+#
+# All Rights Reserved
+#
+################################################################################
+\"\"\"
+Breif:
+Authors: zhangfangjie (f22jay@163.com)
+Date:    %s
+\"\"\"
+"  (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
+
+(defun insert-comment-shell()
+  (interactive)
+  (insert (message "#!/usr/bin/env bash
+################################################################################
+#
+# All Rights Reserved
+#
+################################################################################
+#Breif:
+#Authors: zhangfangjie (f22jay@163.com)
+#Date:    %s
+"  (format-time-string "%Y/%m/%d %H:%M:%S" (current-time)))))
 
 (auto-insert-mode)
 (setq auto-insert-query nil)
-(define-auto-insert "\\.py" 'insert-baidu-comment-python)
-(define-auto-insert "\\.\\([Cc]\\|cc\\|cpp\\|h\\)\\'" 'insert-baidu-comment-1)
-(define-auto-insert "\\.sh" 'insert-baidu-comment-shell)
+(define-auto-insert "\\.py" 'insert-comment-python)
+(define-auto-insert "\\.\\([Cc]\\|cc\\|cpp\\|h\\)\\'" 'insert-my-comment-1)
+(define-auto-insert "\\.sh" 'insert-comment-shell)
 
 (setq multi-shell-command "/bin/bash")
 (setq python-shell-interpreter "ipython"
