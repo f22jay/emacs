@@ -238,10 +238,12 @@ A numeric argument serves as a repeat count."
 (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
 
 ;;set C indent-style
-(add-hook 'c-mode-hook 'linux-c-mode)
-(add-hook 'c++-mode-hook 'linux-cpp-mode)
-;(add-hook 'c-mode-hook 'google-set-c-style)
-;(add-hook 'c++-mode-hook 'google-set-c-style)
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+;; (add-hook 'c-mode-hook 'linux-c-mode)
+;; (add-hook 'c++-mode-hook 'linux-cpp-mode)
+(add-hook 'c-mode-hook 'google-set-c-style)
+(add-hook 'c++-mode-hook 'google-set-c-style)
 
 (defun linux-c-mode ()
   (define-key c-mode-map [return] 'newline-and-indent)
@@ -282,8 +284,7 @@ A numeric argument serves as a repeat count."
 
 (defun insert-baidu-comment-1()
   (interactive)
-  (insert (message "//-*-c++-*-
-// Copyright 2016 Baidu Inc. All Rights Reserved.
+  (insert (message "// Copyright 2016 Baidu Inc. All Rights Reserved.
 // Author : zhangfangjie (zhangfangjie@baidu.com)
 // Date %s
 // Breif :
@@ -304,7 +305,7 @@ A numeric argument serves as a repeat count."
   (interactive)
   (insert (message "/** **************************************************************************
 *
-*         Copyright (c) 2016 Baidu.cOm, Inc. All Rights Reserved
+*         Copyright (c) Inc. All Rights Reserved
 *
 x* ****************************************************************************
 */
