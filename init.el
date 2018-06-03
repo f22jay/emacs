@@ -27,8 +27,8 @@
 (require 'init-dired)
 ;; (require 'init-recentf)
 ;; (require 'init-ido)
-;; (require 'init-auto-complete)
-;; (require 'init-ac-source)
+(require 'init-ac-source)
+(require 'init-auto-complete)
 (require 'init-yasnippet)
 ;; (require 'init-evil)
 
@@ -63,7 +63,7 @@
 (require 'google-c-style)
 (require 'init-flycheck)
 
-(require 'init-company)
+;(require 'init-company)
 (require 'init-gtags)
 (require 'init-gud)
 (require 'init-sh)

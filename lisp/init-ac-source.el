@@ -18,18 +18,18 @@
               (mapcar (lambda (item) (concat "-I" item))
                       (split-string
                        "
- /usr/include
+ /usr/include/c++/5
+ /usr/include/x86_64-linux-gnu/c++/5
+ /usr/include/c++/5/backward
+ /usr/lib/gcc/x86_64-linux-gnu/5/include
  /usr/local/include
- /home/opt/gcc-4.8.2.bpkg-r2/gcc-4.8.2.bpkg-r2/sbin/../lib/gcc/x86_64-baidu-linux-gnu/4.8.2/../../../../include/c++/4.8.2
- /home/opt/gcc-4.8.2.bpkg-r2/gcc-4.8.2.bpkg-r2/sbin/../lib/gcc/x86_64-baidu-linux-gnu/4.8.2/../../../../include/c++/4.8.2/x86_64-baidu-linux-gnu
- /home/opt/gcc-4.8.2.bpkg-r2/gcc-4.8.2.bpkg-r2/sbin/../lib/gcc/x86_64-baidu-linux-gnu/4.8.2/../../../../include/c++/4.8.2/backward
- /home/opt/gcc-4.8.2.bpkg-r2/gcc-4.8.2.bpkg-r2/sbin/../lib/gcc/x86_64-baidu-linux-gnu/4.8.2/include
- /home/opt/gcc-4.8.2.bpkg-r2/gcc-4.8.2.bpkg-r2/sbin/../lib/gcc/x86_64-baidu-linux-gnu/4.8.2/include-fixed
- /home/opt/gcc-4.8.2.bpkg-r2/gcc-4.8.2.bpkg-r2/sbin/../x86_64-baidu-linux-gnu/sys-root//include
+ /usr/lib/gcc/x86_64-linux-gnu/5/include-fixed
+ /usr/include/x86_64-linux-gnu
+ /usr/include
 "
                        ))))
 (defun my-ac-cc-mode-setup ()
   (setq ac-sources (append '(ac-source-clang) ac-sources)))
 (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
-
+(add-hook 'c++-mode-common-hook 'my-ac-cc-mode-setup)
 (provide 'init-ac-source)

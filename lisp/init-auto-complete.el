@@ -11,8 +11,8 @@
 (setq tab-always-indent 'complete)
 
 ;; prevent auto-complete from automatically expanding
-(setq-default ac-expand-on-auto-complete nil)
-(setq-default ac-auto-start nil)
+;; (setq-default ac-expand-on-auto-complete nil)
+;; (setq-default ac-auto-start nil)
 ;; use TAB to explicitily trigger the auto-complete func
 ;; (ac-set-trigger-key "TAB")
 ;; (setq-default ac-dwim nil)
