@@ -17,4 +17,8 @@
 ;; 默认情况下为smart，表示如果输入的字符串不含有大写字符才会忽略大小写
 (setq ac-ignore-case t)
 (add-hook 'go-mode-hook #'(lambda() (setq ac-sources '(ac-source-go ac-source-abbrev ac-source-dictionary))))
+(add-hook 'go-mode-hook '(lambda ()
+                          (local-set-key (kbd "M-.") 'godef-jump)))
+
+
 (provide 'init-go)
