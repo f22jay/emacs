@@ -24,7 +24,7 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
-(require 'init-dired)
+;;(require 'init-dired)
 ;; (require 'init-recentf)
 ;; (require 'init-ido)
 (require 'init-ac-source)
@@ -56,7 +56,7 @@
 ;;              (message "init completed in %.2fms"
 ;;                       (sanityinc/time-subtract-millis after-init-time before-init-time))))
 ;; (require 'init-term-mode)
-(require 'init-linum-mode)
+;;(require 'init-linum-mode)
 (require 'init-gud)
 (require 'init-themes)
 (require 'molokai-theme)
