@@ -34,12 +34,8 @@
   (add-to-list 'package-archives
                `("gnu" . ,(add-address-prefix "elpa.gnu.org/packages/"))))
 
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-;; Also use Melpa for most packages
-(add-to-list 'package-archives
-            `("melpa" . ,(add-address-prefix "melpa.org/packages/")))
-(add-to-list 'package-archives
-            `("melpa-stable" . ,(add-address-prefix "stable.melpa.org/packages/")))
+  (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+  			   ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 
 ;; If gpg cannot be found, signature checking will fail, so we
