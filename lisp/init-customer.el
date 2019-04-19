@@ -17,6 +17,7 @@
 (global-set-key (kbd "M-s ,") 'rename-buffer)
 (global-set-key (kbd "M-s .") 'isearch-forward-symbol-at-point)
 (global-set-key (kbd "M-s k") 'kill-this-buffer)
+(global-set-key (kbd "M-s g") 'rgrep)
 (global-set-key (kbd "M-a") 'backward-paragraph)
 (global-set-key (kbd "M-e") 'forward-paragraph)
 (global-set-key (kbd "M-.") 'helm-gtags-find-tag)
@@ -374,6 +375,8 @@ Date:    %s
     (shell newbuf)
     )
   )
+(set-face-attribute 'comint-highlight-prompt nil
+                                        :inherit nil)
 ;; (set-language-environment 'Chinese-GB)
 (setq locale-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)

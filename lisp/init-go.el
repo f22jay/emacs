@@ -6,6 +6,7 @@
 ;go get -u github.com/nsf/gocode
 ;go get -u github.com/nsf/godef
 ;go get -u github.com/dougm/goflymake
+;go get golang.org/x/tools/cmd/guru  ;; 注意go-uru-set-scope设置包路径，直接看函数注释
 (require 'go-mode)
 (require 'go-autocomplete)
 (add-hook 'before-save-hook 'gofmt-before-save)
