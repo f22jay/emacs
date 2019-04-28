@@ -77,7 +77,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (go-autocomplete go-mode dropdown-list flycheck smart-compile smarter-compile flymake-cppcheck dired+ evil multi-term virtualenv switch-window solarized-theme pos-tip monokai-theme magit helm-gtags fuzzy flymake-python-pyflakes elpy dracula-theme autopair auto-complete-clang ac-math)))
+    (swagger-to-org ac-php go-guru use-package go-autocomplete go-mode dropdown-list flycheck smart-compile smarter-compile flymake-cppcheck dired+ evil multi-term virtualenv switch-window solarized-theme pos-tip monokai-theme magit helm-gtags fuzzy flymake-python-pyflakes elpy dracula-theme autopair auto-complete-clang ac-math)))
  '(send-mail-function (quote mailclient-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
