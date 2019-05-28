@@ -21,6 +21,7 @@
 (global-set-key (kbd "M-a") 'backward-paragraph)
 (global-set-key (kbd "M-e") 'forward-paragraph)
 (global-set-key (kbd "M-.") 'helm-gtags-find-tag)
+(global-set-key (kbd "M-i") 'capitalize-word)
 
 ;; set command preffix
 ;; (define-prefix-command 'alt-z-map)

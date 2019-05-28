@@ -9,6 +9,12 @@
 ;go get golang.org/x/tools/cmd/guru  ;; 注意go-uru-set-scope设置包路径，直接看函数注释
 (require 'go-mode)
 (require 'go-autocomplete)
+(require 'auto-complete-config)
+(require 'go-dlv)
+(ac-config-default)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
 (add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda()
                           (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))

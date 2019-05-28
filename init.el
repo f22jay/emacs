@@ -69,6 +69,7 @@
 (require 'init-gud)
 (require 'init-sh)
 ;; (require 'init-js)
+(require 'go-autocomplete)
 (provide 'init)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
