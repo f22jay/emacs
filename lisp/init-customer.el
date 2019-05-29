@@ -43,7 +43,11 @@
 ;; <F6> -> start find
 (define-key global-map [(f6)] 'find-dired)
 
-(define-key global-map [(f8)] 'smart-compile)
+;; 每次compile，都会确认compile-comand，禁止确认
+(setq compilation-read-command nil)
+;; 定位编译错误
+(global-set-key (kbd "C-c n") 'next-error)
+(define-key global-map (kbd "C-c c") 'smart-compile)
 
 (setq default-buffer-file-coding-system 'utf-8)
 

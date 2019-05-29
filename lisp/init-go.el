@@ -15,7 +15,6 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH"))
-(add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda()
                           (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
 
@@ -27,6 +26,26 @@
 (add-hook 'go-mode-hook '(lambda ()
                           (local-set-key (kbd "M-.") 'godef-jump)))
 
+(defun go-run-currernt-buf ()
+  (let (
+        (cmd  (concat "go run " (buffer-name))))
+  (message cmd)
+  (shell-command cmd)
+  )
+)
+
+(defun go-test-currernt-buf ()
+  (let (
+        (cmd  (concat "go test -v " (buffer-name))))
+  (message cmd)
+  (shell-command cmd)
+  )
+)
+
+(global-set-key (kbd "C-c r") (lambda () (interactive) (go-run-currernt-buf)))
+(global-set-key (kbd "C-c t") (lambda () (interactive) (go-test-currernt-buf)))
+
+(setq compile-command "go build -v && go vet && golint && go test -v")
 
 (add-hook 'go-mode-hook
           (lambda ()
