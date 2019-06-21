@@ -29,7 +29,6 @@
 ;; (require 'init-ido)
 (require 'init-ac-source)
 (require 'init-auto-complete)
-(require 'init-go)
 (require 'init-yasnippet)
 ;; (require 'init-evil)
 
@@ -70,20 +69,22 @@
 (require 'init-sh)
 ;; (require 'init-js)
 (require 'go-autocomplete)
+(require 'init-go)
+
 (provide 'init)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (swagger-to-org ac-php go-guru use-package go-autocomplete go-mode dropdown-list flycheck smart-compile smarter-compile flymake-cppcheck dired+ evil multi-term virtualenv switch-window solarized-theme pos-tip monokai-theme magit helm-gtags fuzzy flymake-python-pyflakes elpy dracula-theme autopair auto-complete-clang ac-math)))
- '(send-mail-function (quote mailclient-send-it)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-(put 'downcase-region 'disabled nil)
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(package-selected-packages
+;;    (quote
+;;     (swagger-to-org ac-php go-guru use-package go-autocomplete go-mode dropdown-list flycheck smart-compile smarter-compile flymake-cppcheck dired+ evil multi-term virtualenv switch-window solarized-theme pos-tip monokai-theme magit helm-gtags fuzzy flymake-python-pyflakes elpy dracula-theme autopair auto-complete-clang ac-math)))
+;;  '(send-mail-function (quote mailclient-send-it)))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
+;; (put 'downcase-region 'disabled nil)

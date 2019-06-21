@@ -48,6 +48,10 @@
 
 (setq compile-command "go build -v && go vet && golint && go test -v")
 
+(let ((govet (flycheck-checker-get 'go-vet 'command)))
+ (when (equal (cadr govet) "tool")
+   (setf (cdr govet) (cddr govet))))
+
 (add-hook 'go-mode-hook
           (lambda ()
             (setq indent-tabs-mode 1)

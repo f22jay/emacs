@@ -23,6 +23,7 @@
 (global-set-key (kbd "M-.") 'helm-gtags-find-tag)
 (global-set-key (kbd "M-i") 'capitalize-word)
 
+(setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOROOT"))
 ;; set command preffix
 ;; (define-prefix-command 'alt-z-map)
 ;; (global-set-key (kbd "M-c") 'alt-z-map)
