@@ -396,4 +396,7 @@ Date:    %s
 (setq-default pathname-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
 (set-language-environment 'UTF-8)
+
+(require 'protobuf-mode)
+(setq auto-mode-alist  (cons '(".proto$" . protobuf-mode) auto-mode-alist))
 (provide 'init-customer)
