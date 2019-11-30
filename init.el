@@ -58,8 +58,6 @@
 ;;(require 'init-linum-mode)
 (require 'init-gud)
 (require 'init-themes)
-(require 'molokai-theme)
-;; (load-theme 'molokai t)
 (require 'google-c-style)
 (require 'init-flycheck)
 
@@ -88,3 +86,20 @@
 ;;  ;; If there is more than one, they won't work right.
 ;;  )
 ;; (put 'downcase-region 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" "f78de13274781fbb6b01afd43327a4535438ebaeec91d93ebdbba1e3fba34d3c" default)))
+ '(package-selected-packages
+   (quote
+    (spacemacs-theme color-theme-solarized virtualenv switch-window swagger-to-org solarized-theme smart-compile rebecca-theme pos-tip multi-term monokai-theme material-theme magit helm-ispell helm-gtags helm-company go-guru fuzzy flyspell-lazy flymake-python-pyflakes flymake-cppcheck flycheck elpy dropdown-list dracula-theme dired+ company-statistics company-c-headers chyla-theme avk-emacs-themes autopair auto-complete-clang ac-math))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

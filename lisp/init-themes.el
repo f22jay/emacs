@@ -8,12 +8,16 @@
 (require-package 'dracula-theme)
 (require-package 'solarized-theme)
 (require-package 'monokai-theme)
+(require-package 'spacemacs-theme)
 
 (require 'dracula-theme)
 ;; (load-theme 'dracula t)
 (require 'solarized-dark-theme)
-;; (load-theme 'solarized-dark t)
+(load-theme 'solarized-dark t)
 (require 'monokai-theme)
-(load-theme 'monokai t)
+(require 'spacemacs-dark-theme)
+;; (load-theme 'spacemacs-dark t)
+
+;; (load-theme 'monokai t)
 
 (provide 'init-themes)
