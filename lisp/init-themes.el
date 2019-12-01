@@ -8,15 +8,21 @@
 (require-package 'dracula-theme)
 (require-package 'solarized-theme)
 (require-package 'monokai-theme)
-(require-package 'spacemacs-theme)
 
-(require 'dracula-theme)
+;;solarized must run termfio, generate 24-bits color
+;;tic -x -o ~/.terminfo ~/.emacs.d/lisp/terminfo-24bit.src
+;; set tmux if need
+;;set -g default-terminal screen-256color
+;; set-option -ga terminal-overrides ",*256col*:Tc" # 这句是关键
+;; set emacs
+;;alias e='TERM=xterm-24bits emacs -nw'
+(require-package 'spacemacs-theme)
+(require-package 'zenburn-theme)
+
 ;; (load-theme 'dracula t)
-(require 'solarized-dark-theme)
 (load-theme 'solarized-dark t)
-(require 'monokai-theme)
-(require 'spacemacs-dark-theme)
 ;; (load-theme 'spacemacs-dark t)
+;; (load-theme 'zenburn t)
 
 ;; (load-theme 'monokai t)
 

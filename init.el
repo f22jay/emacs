@@ -14,8 +14,8 @@
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
-;; (require 'init-compat)
-(require 'init-utils)
+;(require 'init-compat)
+(require 'init-utils)			
 
 (require 'init-elpa)
 ;; (require 'init-exec-path) ;; Set up $PATH
@@ -96,7 +96,7 @@
     ("bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" "f78de13274781fbb6b01afd43327a4535438ebaeec91d93ebdbba1e3fba34d3c" default)))
  '(package-selected-packages
    (quote
-    (spacemacs-theme color-theme-solarized virtualenv switch-window swagger-to-org solarized-theme smart-compile rebecca-theme pos-tip multi-term monokai-theme material-theme magit helm-ispell helm-gtags helm-company go-guru fuzzy flyspell-lazy flymake-python-pyflakes flymake-cppcheck flycheck elpy dropdown-list dracula-theme dired+ company-statistics company-c-headers chyla-theme avk-emacs-themes autopair auto-complete-clang ac-math))))
+    (zenburn-theme zeburn-theme spacemacs-theme color-theme-solarized virtualenv switch-window swagger-to-org solarized-theme smart-compile rebecca-theme pos-tip multi-term monokai-theme material-theme magit helm-ispell helm-gtags helm-company go-guru fuzzy flyspell-lazy flymake-python-pyflakes flymake-cppcheck flycheck elpy dropdown-list dracula-theme dired+ company-statistics company-c-headers chyla-theme avk-emacs-themes autopair auto-complete-clang ac-math))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
