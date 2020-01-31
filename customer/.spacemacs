@@ -33,6 +33,12 @@ values."
    '(
      python
      ycmd
+     (shell :variables
+            shell-default-shell 'ansi-term
+            shell-default-height 30
+            shell-default-term-shell "/bin/zsh"
+            shell-default-position 'bottom)
+     ;; lsp
      (go  :variables go-tab-width 4
           go-format-before-save t
           go-use-golangci-lint t
@@ -330,13 +336,13 @@ you should place your code here."
   (add-hook 'c++-mode-hook 'company-mode)
   (add-hook 'c++-mode-hook 'ycmd-mode)
   (company-ycmd-setup)
+  (add-hook 'go-mode-hook '(lambda ()
+                             (local-set-key (kbd "M-i") 'company-ycmd)))
+  (add-hook 'go-mode-hook 'ycmd-mode)
 
   ;; go
   (add-hook 'go-mode-hook '(lambda ()
                              (local-set-key (kbd "M-.") 'godef-jump)))
-  (add-hook 'go-mode-hook '(lambda ()
-                             (local-set-key (kbd "TAB") 'company-ycmd)))
-  (add-hook 'go-mode-hook 'ycmd-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -351,7 +357,7 @@ you should place your code here."
     ("2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" "f78de13274781fbb6b01afd43327a4535438ebaeec91d93ebdbba1e3fba34d3c" default)))
  '(package-selected-packages
    (quote
-    (yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic flycheck-ycmd company-ycmd ycmd request-deferred deferred flycheck-pos-tip ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smeargle simpleclip restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox spinner orgit org-plus-contrib org-bullets open-junk-file neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-gitignore request helm-flx helm-descbinds helm-ag google-translate golden-ratio go-eldoc gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit git-commit with-editor transient evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word go-mode column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async popup helm-c-yasnippet company-go company auto-yasnippet yasnippet ac-ispell auto-complete ac-helm zenburn-theme zeburn-theme spacemacs-theme color-theme-solarized virtualenv switch-window swagger-to-org solarized-theme smart-compile rebecca-theme pos-tip multi-term monokai-theme material-theme magit helm-ispell helm-gtags helm-company go-guru fuzzy flyspell-lazy flymake-python-pyflakes flymake-cppcheck flycheck elpy dropdown-list dracula-theme dired+ company-statistics company-c-headers chyla-theme avk-emacs-themes autopair auto-complete-clang ac-math))))
+    (xterm-color shell-pop eshell-z eshell-prompt-extras esh-help yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic flycheck-ycmd company-ycmd ycmd request-deferred deferred flycheck-pos-tip ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smeargle simpleclip restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox spinner orgit org-plus-contrib org-bullets open-junk-file neotree move-text mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-gitignore request helm-flx helm-descbinds helm-ag google-translate golden-ratio go-eldoc gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit git-commit with-editor transient evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word go-mode column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async popup helm-c-yasnippet company-go company auto-yasnippet yasnippet ac-ispell auto-complete ac-helm zenburn-theme zeburn-theme spacemacs-theme color-theme-solarized virtualenv switch-window swagger-to-org solarized-theme smart-compile rebecca-theme pos-tip multi-term monokai-theme material-theme magit helm-ispell helm-gtags helm-company go-guru fuzzy flyspell-lazy flymake-python-pyflakes flymake-cppcheck flycheck elpy dropdown-list dracula-theme dired+ company-statistics company-c-headers chyla-theme avk-emacs-themes autopair auto-complete-clang ac-math))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
