@@ -382,7 +382,7 @@ A numeric argument serves as a repeat count."
   (which-function-mode 1))
 
 
-(global-linum-mode 1)
+;; (global-linum-mode 1)
 ;; (global-set-key (kbd "M-,") 'pop-tag-mark)
 ;; autosave opens file list, next open emacs will open these buffer
 ;; (desktop-save-mode 1)
